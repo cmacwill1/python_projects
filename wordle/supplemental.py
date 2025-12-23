@@ -41,9 +41,9 @@ class Game:
                 guess_array = ["_","_","_","_","_"]
                 for i in range(5):
                     if self.word_dict[guess[i]]:
-                        guess_array[i] = "x"
+                        guess_array[i] = "0"
                     if guess[i] == self.word[i]:
-                        guess_array[i] = "y"
+                        guess_array[i] = "✓"
                 print("".join(guess_array))
                 self.correct_history.append("".join(guess_array))
                 if guess == self.word:

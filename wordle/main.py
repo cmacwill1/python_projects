@@ -2,7 +2,7 @@ from supplemental import *
 import os
 
 def main():
-    print("How to play: It is wordle. otherwise type 'saved_game' to save your game to come back to")
+    print("How to play: It is wordle. otherwise type 'saved_game' to save your game to come back to\nCharacter is in word, incorrect place: 0\nCharater is in correct place: ✓")
     try:
         with open("./saved_game.pkl", "rb") as file:
             wordle = pickle.load(file)
@@ -10,7 +10,6 @@ def main():
             print("game loaded")
     except:
         wordle = Game()
-    print(wordle.word)
 
     for i in range(wordle.guess_number, 7):
         if wordle.guess_word():
