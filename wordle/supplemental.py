@@ -1,5 +1,6 @@
 import random
 import pickle
+import os
 
 class Game:
     def __init__(self):
@@ -69,3 +70,10 @@ class Game:
     def save_game(self):
         with open("saved_game.pkl", "wb") as file:
             pickle.dump(self, file, -1)
+
+    def del_save(self):
+        try:
+            os.remove("./saved_game.pkl")
+            print("Save deleted")
+        except:
+            pass
