@@ -4,18 +4,20 @@ import random
 from supplemental import *
 
 pygame.init()
+
 player_width = 30
 map_size = 15
+fps = 10
 
 screen = pygame.display.set_mode((map_size*player_width, map_size*player_width))
 clock = pygame.time.Clock()
-food = Food(random.randint(0,map_size - 1),random.randint(0,map_size - 1))
 player = Snake(map_size)
+food = Food(get_new_food(player, map_size))
 player_render = player_width * player.pos
 
 running = True
 while running:
-    clock.tick(10)
+    clock.tick(fps)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -52,8 +54,7 @@ while running:
         player.grow = True
         player.maxlen += 1
         del food
-        food = Food(random.randint(0,map_size - 1),random.randint(0,map_size - 1))
-        print((player.pos[-1] == player.pos[0:-2]).all(axis=1))
+        food = Food(get_new_food(player, map_size))
     else:
         player.grow = False
     player.tail_pop()

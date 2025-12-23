@@ -1,8 +1,9 @@
 import numpy as np
+import random
 
 class Food:
-    def __init__(self, x, y):
-        self.pos = np.array([x,y])
+    def __init__(self, position):
+        self.pos = position
 
 class Snake:
     def __init__(self, map_size):
@@ -26,3 +27,13 @@ class Snake:
             pass
         else:
             self.pos = np.delete(self.pos, 0, axis=0)
+
+def get_new_food(snake, map_size):
+    while True:
+        food_pos = random.randint(0,map_size - 1)
+        food_array = np.array([food_pos, food_pos])
+        if (snake.pos[:] == food_array).all(axis=1).any():
+            pass
+        else:
+            break
+    return food_array
