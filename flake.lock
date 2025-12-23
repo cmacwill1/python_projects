@@ -75,11 +75,11 @@
       },
       "locked": {
         "dir": "pythonShells/pythonBasicPackages",
-        "lastModified": 1763944235,
-        "narHash": "sha256-eGWX57rWhfRmy5plj2uVJS+WsqimttlABgWFhZQlEm4=",
+        "lastModified": 1766453965,
+        "narHash": "sha256-a/BaEl2lJ+YW9Ir/MvDa3yUEMuOi3utLslZEL/6/jII=",
         "owner": "cmacwill1",
         "repo": "nixShells",
-        "rev": "064f2ee37fa307a655548488aee87f8e2283fe28",
+        "rev": "98a29ff37b29eca0f55251e8bff8c3ba35c1f5f7",
         "type": "github"
       },
       "original": {
@@ -115,11 +115,11 @@
       },
       "locked": {
         "dir": "pythonShells/pythonCore",
-        "lastModified": 1763944235,
-        "narHash": "sha256-eGWX57rWhfRmy5plj2uVJS+WsqimttlABgWFhZQlEm4=",
+        "lastModified": 1766453965,
+        "narHash": "sha256-a/BaEl2lJ+YW9Ir/MvDa3yUEMuOi3utLslZEL/6/jII=",
         "owner": "cmacwill1",
         "repo": "nixShells",
-        "rev": "064f2ee37fa307a655548488aee87f8e2283fe28",
+        "rev": "98a29ff37b29eca0f55251e8bff8c3ba35c1f5f7",
         "type": "github"
       },
       "original": {
@@ -160,11 +160,11 @@
       },
       "locked": {
         "dir": "pythonShells/pythonNotebook",
-        "lastModified": 1763944235,
-        "narHash": "sha256-eGWX57rWhfRmy5plj2uVJS+WsqimttlABgWFhZQlEm4=",
+        "lastModified": 1766453965,
+        "narHash": "sha256-a/BaEl2lJ+YW9Ir/MvDa3yUEMuOi3utLslZEL/6/jII=",
         "owner": "cmacwill1",
         "repo": "nixShells",
-        "rev": "064f2ee37fa307a655548488aee87f8e2283fe28",
+        "rev": "98a29ff37b29eca0f55251e8bff8c3ba35c1f5f7",
         "type": "github"
       },
       "original": {
