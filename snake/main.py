@@ -1,39 +1,70 @@
+import pygame
+import sys
 import random
+from supplemental import *
 
-class Food:
-    def __init__(self):
-        self.pos_x = random.randint(0,10)
-        self.pos_y = random.randint(0,10)
+pygame.init()
+player_width = 30
+map_size = 15
 
+screen = pygame.display.set_mode((map_size*player_width, map_size*player_width))
+clock = pygame.time.Clock()
+food = Food(random.randint(0,map_size - 1),random.randint(0,map_size - 1))
+player = Snake(map_size)
+player_render = player_width * player.pos
 
-class Snake:
-    def __init__(self):
-        self.maxlen = 1
-        self.pos_x = [10]
-        self.pos_y = [10]
-        self.direction = "up"
-        self.grow = False
+running = True
+while running:
+    clock.tick(10)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
 
-    def eat(self):
-        self.maxlen += 1
+    keys = pygame.key.get_pressed()
 
-    def move(self):
-        if self.direction == "up":
-            self.pos_x.append(self.pos_x[-1])
-            self.pos_y.append(self.pos_y[-1] - 1)
-        if self.direction == "down":
-            self.pos_x.append(self.pos_x[-1])
-            self.pos_y.append(self.pos_y[-1] + 1)
-        if self.direction == "left":
-            self.pos_x.append(self.pos_x[-1] - 1)
-            self.pos_y.append(self.pos_y[-1])
-        if self.direction == "right":
-            self.pos_x.append(self.pos_x[-1] + 1)
-            self.pos_y.append(self.pos_y[-1])
-
-    def tail_pop(self):
-        if self.grow == True:
+    if keys[pygame.K_LEFT]:
+        if player.direction == "right":
             pass
         else:
-            self.pos_x.pop(0)
-            self.pos_y.pop(0)
+            player.direction = "left"
+    if keys[pygame.K_RIGHT]:
+        if player.direction == "left":
+            pass
+        else:
+            player.direction = "right"
+    if keys[pygame.K_UP]:
+        if player.direction == "down":
+            pass
+        else:
+            player.direction = "up"
+    if keys[pygame.K_DOWN]:
+        if player.direction == "up":
+            pass
+        else:
+            player.direction = "down"
+
+    player.move()
+    if player.pos[-1][0] > map_size - 1 or player.pos[-1][0] < 0 or player.pos[-1][1] > map_size - 1 or player.pos[-1][1] < 0:
+        pygame.quit()
+    elif player.maxlen > 4 and (player.pos[-1] == player.pos[0:-2]).all(axis=1).any():
+        pygame.quit()
+    elif np.array_equal(player.pos[-1], food.pos):
+        player.grow = True
+        player.maxlen += 1
+        del food
+        food = Food(random.randint(0,map_size - 1),random.randint(0,map_size - 1))
+        print((player.pos[-1] == player.pos[0:-2]).all(axis=1))
+    else:
+        player.grow = False
+    player.tail_pop()
+
+    player_render = player_width * player.pos
+    screen.fill((0, 0, 0)) # Clear screen
+    for i in range(len(player_render)):
+        pygame.draw.rect(screen, (0, 255, 0), (player_render[i][0], player_render[i][1], 30, 30))
+    pygame.draw.rect(screen, (255, 0, 0), (food.pos[0] * player_width, food.pos[1] * player_width, 30, 30))
+    pygame.display.flip()
+
+pygame.quit()
+sys.exit()
+
