@@ -1,32 +1,12 @@
 {
   "nodes": {
-    "latexMain": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "dir": "latexShells/latexMain",
-        "lastModified": 1763944235,
-        "narHash": "sha256-eGWX57rWhfRmy5plj2uVJS+WsqimttlABgWFhZQlEm4=",
-        "owner": "cmacwill1",
-        "repo": "nixShells",
-        "rev": "064f2ee37fa307a655548488aee87f8e2283fe28",
-        "type": "github"
-      },
-      "original": {
-        "dir": "latexShells/latexMain",
-        "owner": "cmacwill1",
-        "repo": "nixShells",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1761907660,
-        "narHash": "sha256-kJ8lIZsiPOmbkJypG+B5sReDXSD1KGu2VEPNqhRa/ew=",
+        "lastModified": 1766309749,
+        "narHash": "sha256-3xY8CZ4rSnQ0NqGhMKAy5vgC+2IVK0NoVEzDoOh4DA4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2fb006b87f04c4d3bdf08cfdbc7fab9c13d94a15",
+        "rev": "a6531044f6d0bef691ea18d4d4ce44d0daa6e816",
         "type": "github"
       },
       "original": {
@@ -38,11 +18,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1763678758,
-        "narHash": "sha256-+hBiJ+kG5IoffUOdlANKFflTT5nO3FrrR2CA3178Y5s=",
+        "lastModified": 1761907660,
+        "narHash": "sha256-kJ8lIZsiPOmbkJypG+B5sReDXSD1KGu2VEPNqhRa/ew=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "117cc7f94e8072499b0a7aa4c52084fa4e11cc9b",
+        "rev": "2fb006b87f04c4d3bdf08cfdbc7fab9c13d94a15",
         "type": "github"
       },
       "original": {
@@ -69,22 +49,6 @@
       }
     },
     "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1761907660,
-        "narHash": "sha256-kJ8lIZsiPOmbkJypG+B5sReDXSD1KGu2VEPNqhRa/ew=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "2fb006b87f04c4d3bdf08cfdbc7fab9c13d94a15",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_5": {
       "locked": {
         "lastModified": 1761907660,
         "narHash": "sha256-kJ8lIZsiPOmbkJypG+B5sReDXSD1KGu2VEPNqhRa/ew=",
@@ -127,7 +91,7 @@
     },
     "pythonCore": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "dir": "pythonShells/pythonCore",
@@ -147,7 +111,7 @@
     },
     "pythonCore_2": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "dir": "pythonShells/pythonCore",
@@ -167,7 +131,7 @@
     },
     "pythonCore_3": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "dir": "pythonShells/pythonCore",
@@ -212,8 +176,7 @@
     },
     "root": {
       "inputs": {
-        "latexMain": "latexMain",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "pythonBasicPackages": "pythonBasicPackages",
         "pythonCore": "pythonCore_2",
         "pythonNotebook": "pythonNotebook"
