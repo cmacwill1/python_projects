@@ -1,6 +1,5 @@
 import pygame
 import sys
-import random
 from supplemental import *
 
 pygame.init()
@@ -8,6 +7,7 @@ pygame.init()
 player_width = 30
 map_size = 15
 fps = 10
+snake_counter = 0
 
 screen = pygame.display.set_mode((map_size*player_width, map_size*player_width))
 clock = pygame.time.Clock()
@@ -17,7 +17,7 @@ player_render = player_width * player.pos
 
 running = True
 while running:
-    clock.tick(fps)
+    clock.tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -44,20 +44,23 @@ while running:
             pass
         else:
             player.direction = "down"
+    snake_counter += 1
 
-    player.move()
-    if player.pos[-1][0] > map_size - 1 or player.pos[-1][0] < 0 or player.pos[-1][1] > map_size - 1 or player.pos[-1][1] < 0:
-        pygame.quit()
-    elif player.maxlen > 4 and (player.pos[-1] == player.pos[0:-2]).all(axis=1).any():
-        pygame.quit()
-    elif np.array_equal(player.pos[-1], food.pos):
-        player.grow = True
-        player.maxlen += 1
-        del food
-        food = Food(get_new_food(player, map_size))
-    else:
-        player.grow = False
-    player.tail_pop()
+    if snake_counter == 6:
+        player.move()
+        if player.pos[-1][0] > map_size - 1 or player.pos[-1][0] < 0 or player.pos[-1][1] > map_size - 1 or player.pos[-1][1] < 0:
+            pygame.quit()
+        elif player.maxlen > 4 and (player.pos[-1] == player.pos[0:-2]).all(axis=1).any():
+            pygame.quit()
+        elif np.array_equal(player.pos[-1], food.pos):
+            player.grow = True
+            player.maxlen += 1
+            del food
+            food = Food(get_new_food(player, map_size))
+        else:
+            player.grow = False
+        player.tail_pop()
+        snake_counter = 0
 
     player_render = player_width * player.pos
     screen.fill((0, 0, 0)) # Clear screen
@@ -68,4 +71,3 @@ while running:
 
 pygame.quit()
 sys.exit()
-
